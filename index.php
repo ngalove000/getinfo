@@ -54,7 +54,7 @@ get_web_page($link,$content);
     $string = $content;
     $pattern = '/[a-z0-9_\-\+]+@[a-z0-9\-]+\.([a-z]{2,3})(?:\.[a-z]{2})?/i';
     preg_match($pattern, $string, $matches);
-    echo "URL: ".str_replace("/ email contact",'',$key);
+    echo "URL: ".str_replace(" email contact",'',$key);
 
     echo "</br></br>";
     echo "Email: ".$matches[0];
