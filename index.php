@@ -34,6 +34,7 @@ if(isset($_POST['button']))
   $sites = explode(',',$sites);
   // var_dump($sites);
   foreach ($sites as $key) {
+
 $key = $key." email contact";
 $url = "https://www.bing.com/search?q=".rawurlencode($key);
 if(get_web_page($url,$content)){
@@ -41,9 +42,10 @@ if(get_web_page($url,$content)){
 
   $dom = new Document();
   $dom->load($content);
-  $result = $dom->find('li[class=b_algo]')[0];
+  if($dom->find('li[class=b_algo]')[0])
+  {
   // echo $lists;
-
+$result = $dom->find('li[class=b_algo]')[0];
     // $title = $list->find('strong[class=text-info title_display]')[0]->text();
     // echo $title;
     // echo "</br></br>";
@@ -58,10 +60,27 @@ get_web_page($link,$content);
 
     echo "</br></br>";
     echo "Email: ".$matches[0];
+    // echo "<br />";
+    // for($i=0;$i<3;$i++){
+    //   echo $matches[0][$i];
+    //   echo "<br />";
+    // }
+    // echo "<pre>";
+    // print_r($matches);
+    //
+    // echo "</pre>";
 
     echo "</br></br>";
     echo "</br></br>";
-
+}
+else {
+  {
+echo "Error";
+echo "</br></br>";
+echo "</br></br>";
+continue;
+  }
+}
   }
 }
 }
