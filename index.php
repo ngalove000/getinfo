@@ -31,7 +31,7 @@ use \DiDom\Element;
 if(isset($_POST['button']))
 {
   $sites = $_POST['sites'];
-  $sites = explode(',',$sites);
+  $sites = explode("\n",$sites);
   // var_dump($sites);
   foreach ($sites as $key) {
 
